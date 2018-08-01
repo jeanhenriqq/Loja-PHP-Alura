@@ -5,7 +5,7 @@
 		$preco = $_GET['preco'];
 		$connection = mysqli_connect('localhost', 'root', '', 'loja'); //Abre a conexão com o BD.
 
-		$query = "insert into produtos (nome, preco) values ('{$nome}', '{$preco}')"; //Passa a query que queremos inserindo na tabela onde queremos
+		$query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})"; //Passa a query que queremos inserindo na tabela onde queremos
 		
 		if(mysqli_query($connection, $query)) { //Manda executar a query 
 		?> 
