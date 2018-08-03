@@ -1,18 +1,27 @@
 <?php include("header.php") ?>
 			
-	<form action="adiciona-produto.php" class="col-sm-3">
-		<div class="form-group"> 
-		    <label for="formGroupExampleInput">Adicione um produto</label>
-		    <input type="text" name="nome" class="form-control" id="formGroupExampleInput" placeholder="Produto">
+	<form action="adiciona-produto.php">
+		<div class="form-group row"> 
+		    <label for="nomeProduto" class="col-sm-1 col-form-label">Nome:</label>
+		    <div class="col-sm-5">
+		    	<input type="text" name="nome" class="form-control" id="nomeProduto" placeholder="Produto">
+	    	</div>
 		</div>
 
-		<div class="input-group ">
-		    <div class="input-group-prepend">
-		    	<span class="input-group-text">$</span>
+		<div class="form-group row">
+		    <label for="precoProduto" class="col-sm-1 col-form-label">Preço:</label>
+		    <div class="input-group col-sm-5">
+			    <div class="input-group-prepend">
+			    	<span class="input-group-text">R$</span>
+				</div>
+			    <input type="text" name="preco" id="precoProduto" class="form-control" aria-label="Preço" placeholder="0.00">
 			</div>
-		    <input type="text" name="preco" class="form-control" aria-label="Preço">
 		</div>
-			<button type="submit" class="btn btn-primary">Cadastrar</button>
+		<div class="form-group row">
+			<div class="col-sm-5 offset-sm-1">
+			<button type="submit" class="btn btn-primary col-sm-12" value="Submit">Cadastrar</button>
+		</div>
+		</div>
 	</form>
 
 <?php require("footer.php") ?>
