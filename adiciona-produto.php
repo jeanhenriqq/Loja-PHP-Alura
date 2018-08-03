@@ -4,9 +4,10 @@
 
 		$nome = $_GET['nome']; 
 		$preco = $_GET['preco'];
+		$descricao = $_GET['descricao'];
 		
 
-		if(insereProduto($connection, $nome, $preco)) { //Manda executar a query 
+		if(insereProduto($connection, $nome, $preco, $descricao)) { //Manda executar a query 
 			?> 
 				<p class="alert alert-success" role="alert">Produto <?= $nome ?>, custando R$ <?= $preco ?> adicionado.</p>
 			<?php	} 

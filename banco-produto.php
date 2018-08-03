@@ -8,8 +8,8 @@ function listaProdutos($connection) {
 	return $produtos;
 }
 
-function insereProduto($connection, $nome, $preco){
-	$query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})"; //Passa a query que queremos inserindo na tabela onde queremos
+function insereProduto($connection, $nome, $preco, $descricao){
+	$query = "insert into produtos (nome, preco, descricao) values ('{$nome}', {$preco}, '{$descricao}')"; //Passa a query que queremos inserindo na tabela onde queremos
 	return mysqli_query($connection, $query);
 }
 

@@ -18,6 +18,12 @@
 			</div>
 		</div>
 		<div class="form-group row">
+		    <label for="descricaoProduto" class="col-sm-1 col-form-label">Descrição:</label>
+		    <div class="input-group col-sm-5">
+			    <textarea type="text" name="descricao" id="descricaoProduto" class="form-control" aria-label="Descrição"></textarea>
+			</div>
+		</div>
+		<div class="form-group row">
 			<div class="col-sm-5 offset-sm-1">
 			<button type="submit" class="btn btn-primary col-sm-12" value="Submit">Cadastrar</button>
 		</div>
