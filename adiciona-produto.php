@@ -1,22 +1,19 @@
-<?php include("header.php") ?>
-
-	<?php 
-		function insereProduto($connection, $nome, $preco){
-			$query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})"; //Passa a query que queremos inserindo na tabela onde queremos
-			return mysqli_query($connection, $query);
-		}
+<?php include("header.php"); 
+	  include("connect.php"); 
+ 	  include("banco-produto.php"); 
 
 		$nome = $_GET['nome']; 
 		$preco = $_GET['preco'];
-		$connection = mysqli_connect('localhost', 'root', '', 'loja'); //Abre a conexão com o BD.
-
+		
 
 		if(insereProduto($connection, $nome, $preco)) { //Manda executar a query 
 			?> 
 				<p class="alert alert-success" role="alert">Produto <?= $nome ?>, custando R$ <?= $preco ?> adicionado.</p>
-			<?php	} else { 
+			<?php	} 
+			else { 
+				$errorMsg = mysqli_error($connection);
 			?>
-				<p class="alert alert-danger" role="alert"> Produto <?= $nome ?>, não foi adicionado.</p>
+				<p class="alert alert-danger" role="alert"> Produto <?= $nome ?>, não foi adicionado.<br> <?= $erroMsg?> </p>
 			<?php
 		}
 
@@ -24,4 +21,4 @@
 
 	?>
 
-<?php include("footer.php") ?>
+<?php include("footer.php"); ?>
