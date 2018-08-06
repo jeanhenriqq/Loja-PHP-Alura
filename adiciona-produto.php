@@ -2,12 +2,18 @@
 	  include("connect.php"); 
  	  include("banco-produto.php"); 
 
-		$nome = $_GET['nome']; 
-		$preco = $_GET['preco'];
-		$descricao = $_GET['descricao'];
+		$nome = $_POST['nome']; 
+		$preco = $_POST['preco'];
+		$descricao = $_POST['descricao'];
+		$categoria_id = $_POST['categoria_id'];
+		if(array_key_exists('usado', $_POST)) {
+			$usado = "true";
+		} else {
+			$usado = "false";
+		}
 		
 
-		if(insereProduto($connection, $nome, $preco, $descricao)) { //Manda executar a query 
+		if(insereProduto($connection, $nome, $preco, $descricao, $categoria_id, $usado)) { //Manda executar a query 
 			?> 
 				<p class="alert alert-success" role="alert">Produto <?= $nome ?>, custando R$ <?= $preco ?> adicionado.</p>
 			<?php	} 

@@ -17,6 +17,7 @@
 	      <th scope="col">Produto</th>
 	      <th scope="col">Preço</th>
 	      <th scope="col">Descrição</th>
+	      <th scope="col">Categoria</th>
 	      <th scope="col"></th>
 	    </tr>
 	  </thead>
@@ -29,7 +30,13 @@
 			<td><?=$produto['nome'] ?></td> 
 			<td><?=$produto['preco'] ?></td>
 			<td><?= substr($produto['descricao'], 0, 50) ?></td>
-			<td><a href="remove-produto.php?id=<?=$produto['id']?>" class="text-danger">Remover</a></td>
+			<td><?=$produto['categoria_nome'] ?></td>
+			<td>
+				<form action="remove-produto.php" method="post">
+					<input type="hidden" name="id" value="<?=$produto['id']?>">
+					<button class="btn btn-danger "><i class="fas fa-trash-alt"></i></button>
+				</form>
+			</td>
 		</tr>
 	<?php
 	endforeach

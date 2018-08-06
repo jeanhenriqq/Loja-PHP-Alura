@@ -1,6 +1,11 @@
-<?php include("header.php") ?>
+<?php include("header.php") ;
+	  include("connect.php");
+	  include("banco-categoria.php");
+
+	  $categorias = listaCategorias($connection);
+?>
 			
-	<form action="adiciona-produto.php">
+	<form action="adiciona-produto.php" method="post">
 		<div class="form-group row"> 
 		    <label for="nomeProduto" class="col-sm-1 col-form-label">Nome:</label>
 		    <div class="col-sm-5">
@@ -24,8 +29,29 @@
 			</div>
 		</div>
 		<div class="form-group row">
+		    <label class="col-sm-1 col-form-label">Usado:</label>
+		    <div class="input-group col-sm-5">
+			    <div class="custom-control custom-checkbox">
+				  <input type="checkbox" class="custom-control-input" id="estadoProduto" name="usado">
+				  <label class="custom-control-label" for="estadoProduto">Usado</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="categoriaProduto" class="col-sm-1 col-form-label">Categorias:</label>
+			<div class="col-sm-5">
+				<select name="categoria_id" class="form-control" id="categoriaProduto">
+				<?php foreach ($categorias as $categoria) : ?>
+					<div class="form-control">
+					  <option class="text-capitalize" value="<?=$categoria['id']?>"><?=$categoria['nome']?></option>
+					</div>
+				<?php endforeach ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group row">
 			<div class="col-sm-5 offset-sm-1">
-			<button type="submit" class="btn btn-primary col-sm-12" value="Submit">Cadastrar</button>
+			<button type="submit" class="btn btn-primary btn-block" value="Submit">Cadastrar</button>
 		</div>
 		</div>
 	</form>

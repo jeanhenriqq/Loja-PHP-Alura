@@ -1,6 +1,5 @@
 body {padding-top: 50px; font-family: roboto, sans-serif}
 
-.principal {padding: 40px 15px; text-align: center;}
+.principal {padding: 40px 15px; text-align: left;}
 
-.margin-top-10 {margin-top: 10px;}
-.padding-top-10 {padding-top: 10px;}
+.homeTitle {text-align: center;}
